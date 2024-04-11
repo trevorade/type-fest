@@ -4,8 +4,7 @@ import type {ArrayIndices} from '../index';
 const values = ['a', 'b', 'c'] as const;
 type ValueKeys = ArrayIndices<typeof values>;
 
-declare const test: 0 | 1 | 2;
-expectType<ValueKeys>(test);
+expectType<ValueKeys>(null! as 0 | 1 | 2);
 
 expectAssignable<ValueKeys>(0);
 expectAssignable<ValueKeys>(1);
@@ -16,8 +15,7 @@ expectNotAssignable<ValueKeys>(3);
 
 type TupleKeys = ArrayIndices<['a', 2]>;
 
-declare const testTuple: 0 | 1;
-expectType<TupleKeys>(testTuple);
+expectType<TupleKeys>(null! as 0 | 1);
 
 expectAssignable<TupleKeys>(0);
 expectAssignable<TupleKeys>(1);
