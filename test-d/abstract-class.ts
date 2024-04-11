@@ -86,6 +86,6 @@ class CityBlock<BuildingType extends AbstractBuilding<Census>> {
 }
 
 const Family = (new CityBlock(House)).residence.owners;
-expectType<IsAny<typeof Family>>(false);
+expectType<IsAny<typeof Family>>(null! as false);
 expectAssignable<number>(Family.count);
 // /Prototype test with type parameter
